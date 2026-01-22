@@ -70,11 +70,11 @@ with a number of points of 200 grid points using GMRES by running:
 
 ```julia
 
-julia> DP.span(
-           p=3, β=1.695, β2=1.695, τf=10.0, n=200, S=0.65,
-           nKrylov=200, ϵ=1e-4, ψ=0.0, maxiters=200,
-           compression=:half
-       );
+julia> op, ep = DP.span(
+                  p=3, β=1.695, β2=1.695, τf=10.0, n=200, S=0.65,
+                  nKrylov=200, ϵ=1e-4, ψ=0.0, maxiters=200,
+                  compression=:half
+              );
 # NEW ITER: p=3   β=1.695   β2=1.695   τf=10.0   n=200   S=0.65
 it=1
  Δ=0.05300906697405486
@@ -91,7 +91,8 @@ it=4
 it=5
  Δ=6.849098313327863e-6
  Δeq = 1.2402767035624152e-8
-191.819588 seconds (33.88 M allocations: 295.727 GiB, 1.82% gc time, 0.36% compilation time)
+183.446549 seconds (35.51 M allocations: 295.842 GiB, 1.64% gc time, 1.06% compilation time)
+
 
 ```
 
@@ -100,11 +101,28 @@ where
  - `ϵ`: precision tolerance for the solution of the equations; 
  - `maxiters`: maximum number of Newton's updates;
  - `verb`: verbosity;
- - `nKrylov`: size of the Krylov base. Note that an higher value of `nKrylov` increases memory consumption, but it may speed up Newton's convergence as the Newton's step is evaluated more precisely. 
+ - `nKrylov`: size of the Krylov base. Note that an higher value of `nKrylov` increases memory consumption, but it may speed up Newton's convergence as the Newton's step is evaluated more precisely;
+ - `compression`: solves the equations using a compressed version of the OrderParams; `compression∈[:half, :lossy]` see later for additional details;
+ - `save_file`: if `true` and the solution to the equation is found, saves the structs `op`, `ep`, `pars` into a serialized file named `FP_β$(ep.β)_n$(ep.n)_τf$(ep.τf)_S$(ep.S)_ls$(pars.lossyscale)_nK$(pars.nKrylov).txt`. 
 
 Note that the printed output `Δ` and `Δeq` represents respectively the maximum absolute value of the Newton's 
 step update `d(op)` and of the vector of dynamical equations `F(op)`. A solution of the dynamical equations
 is considered found when `Δ <= ϵ`. 
+
+The function `span` outputs the struct of `OrderParams` at convergence and the `ExtParams` used. If the `save_file` flag was used to save the solution you can retrieve it back using the `readparams_all` function and plot the correlation as follows
+
+```julia
+
+julia> using Plots
+julia> op, ep, pars = DP.readparams_all("FP_β1.695_n200_τf10.0_S0.65_ls0_nK200.txt");
+julia> heatmap(op.𝓒[1:2ep.n+1, 1:2ep.n+1], yflip = true)
+
+```
+
+This will give generate the figure below.
+
+[Correlation function](C.png)
+
 
 ## Compression (memory-saving) options
 

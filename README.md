@@ -123,7 +123,7 @@ julia> heatmap(op.𝓒[1:2ep.n+1, 1:2ep.n+1], yflip = true)
 This will give generate the figure below.
 
 <p align="center">
-  <img src="./C.png" width="700">
+  <img src="./Figures/C.png" width="700">
   <br>
     Correlation function $C(t, t')$
 </p>
@@ -142,11 +142,11 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
 <table>
   <tr>
     <td align="center">
-       <img src="./R.png" width="400">
+       <img src="./Figures/R.png" width="400">
       Response function $R(t, s)$
     </td>
     <td align="center">
-      <img src="./chi.png" width="400">
+      <img src="./Figures/chi.png" width="400">
       Causal susceptibility $\chi(t, s)$
     </td>
   </tr>

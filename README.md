@@ -109,7 +109,7 @@ Note that the printed output `Δ` and `Δeq` represents respectively the maximum
 step update `d(op)` and of the vector of dynamical equations `F(op)`. A solution of the dynamical equations
 is considered found when `Δ <= ϵ`. 
 
-The function `span` outputs the struct of `OrderParams` at convergence and the `ExtParams` used. If the `save_file` flag was used to save the solution you can retrieve it back using the `readparams_all` function and plot the correlation as follows
+The function `span` outputs the struct of `OrderParams` at convergence and the `ExtParams` used. If the `save_file` flag was used to save the solution you can retrieve it back using the `readparams_all` function and plot the *correlation function* as follows
 
 ```julia
 
@@ -123,7 +123,10 @@ This will give generate the figure below.
 
 <p align="center">
   <img src="./C.png" width="700">
-  <em>Correlation function $C(t, t')$</em>
+  <br>
+  <em>
+    Correlation function $C(t, t')$
+  </em>
 </p>
 
 Similarly the *response functions* and the *causal susceptibilities* can be plotted as follows
@@ -140,7 +143,7 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
   <tr>
     <td align="center">
        <img src="./R.png" width="400">
-      <em>Response function $\R(t, t')$</em>
+      <em>Response function $R(t, t')$</em>
     </td>
     <td align="center">
       <img src="./chi.png" width="400">

@@ -124,9 +124,9 @@ This will give generate the figure below.
 
 <p align="center">
   <img src="./C.png" width="700">
+  <br>
     Correlation function $C(t, t')$
 </p>
-
 
 Similarly the *response functions* $R(t,s)$ and the *causal susceptibilities* $\chi(t,s)$ introduced in the paper can be accessed respectively 
 by `op.𝓒[1:2ep.n+1, 2ep.n+2:2*(2ep.n+1)]` and `op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)]`. They can be plotted as follows
@@ -137,6 +137,7 @@ julia> heatmap(op.𝓒[1:2ep.n+1, 2ep.n+2:2*(2ep.n+1)], yflip = true)
 julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
 
 ```
+
 
 <table>
   <tr>

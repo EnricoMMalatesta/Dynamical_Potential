@@ -6,8 +6,8 @@ Julia solver of the the non-causal dynamical equations derived in
   *Rare Trajectories in a Prototypical Mean-field Disordered Model: Insights into Landscape and Instantons*,  
   arXiv:2505.00107 (2025).
 
-The code targets the **instanton / saddle-point dynamical equations associated with Langevin dynamics**. In 
-particular the system starts from an equilibrium initial condition sampled at inverse temperature `β`; it then 
+describing instanton processes in Random First Order Mean Field models via the analysis of a dynamical analog of the
+Franz-Parisi potential. In particular the system starts from an equilibrium initial condition sampled at inverse temperature `β`; it then 
 evolves with Langevin dynamics at inverse temperature `β2` for a time window `τf` where the trajectory is constrained 
 to have overlap `S` with the initial configuration.
 
@@ -111,7 +111,7 @@ is considered found when `Δ <= ϵ`.
 Many objects are time–time correlation/response matrices, which can be large for big number of grid points `n`. 
 The keyword `compression` controls how the set of  is stored internally inside GMRES/Newton:
 
-- `compression = :half`: stores half of the symmetric correlation blocks (exploiting C(t,t')=C(t',t) and analogous symmetries),
+- `compression = :half`: stores half of the symmetric correlation blocks (exploiting $C(t,t')=C(t',t)$ and analogous symmetries),
 while keeping the required response block. Solves the exact discretized equations, just with reduced memory usage.
 
 - `compression = :lossy`: uses a coarser effective time step where possible (i.e. increases the step size in the bulk) while keeping

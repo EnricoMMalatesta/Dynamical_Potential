@@ -125,6 +125,23 @@ This will give generate the figure below.
   <img src="./C.png" width="700">
 </p>
 
+Similarly the *response functions* and the *causal susceptibilities* can be plotted as follows
+
+```julia
+
+julia> heatmap(op.𝓒[1:2ep.n+1, 2ep.n+2:2*(2ep.n+1)], yflip = true)
+julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
+
+```
+
+
+<p align="center">
+  <img src="./R.png" width="500">
+</p>
+<p align="center">
+  <img src="./chi.png" width="500">
+</p>
+
 
 ## Compression (memory-saving) options
 

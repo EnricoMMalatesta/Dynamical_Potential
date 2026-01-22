@@ -121,7 +121,7 @@ julia> heatmap(op.𝓒[1:2ep.n+1, 1:2ep.n+1], yflip = true)
 
 This will give generate the figure below.
 
-[Correlation function](C.png)
+[Correlation function](./C.png)
 
 
 ## Compression (memory-saving) options

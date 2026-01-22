@@ -102,7 +102,7 @@ where
  - `maxiters`: maximum number of Newton's updates;
  - `verb`: verbosity;
  - `nKrylov`: size of the Krylov base. Note that an higher value of `nKrylov` increases memory consumption, but it may speed up Newton's convergence as the Newton's step is evaluated more precisely;
- - `compression`: solves the equations using a compressed version of the OrderParams; `compression∈[:half, :lossy]` see later for additional details;
+ - `compression`: solves the equations using a compressed version of the OrderParams; two compression methods are implemented `compression ∈ [:half, :lossy]` see later for additional details;
  - `save_file`: if `true` and the solution to the equation is found, saves the structs `op`, `ep`, `pars` into a serialized file named `FP_β$(ep.β)_n$(ep.n)_τf$(ep.τf)_S$(ep.S)_ls$(pars.lossyscale)_nK$(pars.nKrylov).txt`. 
 
 Note that the printed output `Δ` and `Δeq` represents respectively the maximum absolute value of the Newton's 

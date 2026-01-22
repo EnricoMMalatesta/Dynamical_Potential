@@ -1,3 +1,5 @@
+# Dynamical_Potential.jl
+
 Julia solver of the the non-causal dynamical equations derived in
 
 - P. Charbonneau, G. Folena, E. M. Malatesta, T. Rizzo, F. Zamponi,  
@@ -49,7 +51,7 @@ f(x, p) = x^p
 - Julia (tested on recent Julia 1.x; 1.9+ recommended).
 ---
 
-# Quick start
+# Usage example
 
 From a Julia REPL you can solve the dynamical equations 
 
@@ -68,7 +70,7 @@ with a number of points of 200 grid points using GMRES by running:
 
 ```julia
 
-julia> P.span(
+julia> DP.span(
            p=3, β=1.695, β2=1.695, τf=10.0, n=200, S=0.65,
            nKrylov=200, ϵ=1e-4, ψ=0.0, maxiters=200,
            compression=:half
@@ -98,8 +100,7 @@ where
  - `ϵ`: precision tolerance for the solution of the equations; 
  - `maxiters`: maximum number of Newton's updates;
  - `verb`: verbosity;
- - `nKrylov`: size of the Krylov base. Note that an higher value of `nKrylov` can increase
-memory consumption, but speed up Newton's convergence as the Newton's step is evaluated more precisely. 
+ - `nKrylov`: size of the Krylov base. Note that an higher value of `nKrylov` increases memory consumption, but it may speed up Newton's convergence as the Newton's step is evaluated more precisely. 
 
 Note that the printed output `Δ` and `Δeq` represents respectively the maximum absolute value of the Newton's 
 step update `d(op)` and of the vector of dynamical equations `F(op)`. A solution of the dynamical equations
@@ -126,9 +127,11 @@ controlled approximation.
 # Citing
 This code is free to use. If you use it in academic work, please cite:
 
+```
 @article{charbonneau2025rare,
   title={Rare Trajectories in a Prototypical Mean-field Disordered Model: Insights into Landscape and Instantons},
   author={Charbonneau, Patrick and Folena, Giampaolo and Malatesta, Enrico M and Rizzo, Tommaso and Zamponi, Francesco},
   journal={arXiv preprint arXiv:2505.00107},
   year={2025}
 }
+```

@@ -97,6 +97,7 @@ it=5
 ```
 
 where
+ - `n`: number of grid points for the time variable;
  - `ψ`: damping factor for the Newton's update;
  - `ϵ`: precision tolerance for the solution of the equations; 
  - `maxiters`: maximum number of Newton's updates;
@@ -129,7 +130,12 @@ This will give generate the figure below.
   </em>
 </p>
 
-Similarly the *response functions* and the *causal susceptibilities* can be plotted as follows
+<p align="center">
+Correlation function $C(t, t')$
+</p>
+
+Similarly the *response functions* $R(t,s)$ and the *causal susceptibilities* $\chi(t,s)$ introduced in the paper can be accessed respectively 
+by `op.𝓒[1:2ep.n+1, 2ep.n+2:2*(2ep.n+1)]` and `op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)]`. They can be plotted as follows
 
 ```julia
 
@@ -143,11 +149,11 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
   <tr>
     <td align="center">
        <img src="./R.png" width="400">
-      <em>Response function $R(t, t')$</em>
+      <em>Response function $R(t, s)$</em>
     </td>
     <td align="center">
       <img src="./chi.png" width="400">
-      <em>Causal susceptibility $\chi(t, t')$</em>
+      <em>Causal susceptibility $\chi(t, s)$</em>
     </td>
   </tr>
 </table>
@@ -158,7 +164,7 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
 Many objects are time–time correlation/response matrices, which can be large for big number of grid points `n`. 
 The keyword `compression` controls how the set of  is stored internally inside GMRES/Newton:
 
-- `compression = :half`: stores half of the symmetric correlation blocks (exploiting $C(t,t')=C(t',t)$ and analogous symmetries),
+- `compression = :half`: stores half of the symmetric correlation blocks (exploiting $C(t,s)=C(s,t)$ and analogous symmetries),
 while keeping the required response block. Solves the exact discretized equations, just with reduced memory usage.
 
 - `compression = :lossy`: uses a coarser effective time step where possible (i.e. increases the step size in the bulk) while keeping

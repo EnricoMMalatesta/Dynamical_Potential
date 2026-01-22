@@ -149,11 +149,11 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
   <tr>
     <td align="center">
        <img src="./R.png" width="400">
-      <em>Response function $R(t, s)$</em>
+      Response function $R(t, s)$
     </td>
     <td align="center">
       <img src="./chi.png" width="400">
-      <em>Causal susceptibility $\chi(t, s)$</em>
+      Causal susceptibility $\chi(t, s)$
     </td>
   </tr>
 </table>

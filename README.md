@@ -123,6 +123,7 @@ This will give generate the figure below.
 
 <p align="center">
   <img src="./C.png" width="700">
+  <em>Correlation function $C(t, t')$</em>
 </p>
 
 Similarly the *response functions* and the *causal susceptibilities* can be plotted as follows
@@ -135,12 +136,18 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
 ```
 
 
-<p align="center">
-  <img src="./R.png" width="300">
-</p>
-<p align="center">
-  <img src="./chi.png" width="300">
-</p>
+<table>
+  <tr>
+    <td align="center">
+       <img src="./R.png" width="400">
+      <em>Response function $\R(t, t')$</em>
+    </td>
+    <td align="center">
+      <img src="./chi.png" width="400">
+      <em>Causal susceptibility $\chi(t, t')$</em>
+    </td>
+  </tr>
+</table>
 
 
 ## Compression (memory-saving) options

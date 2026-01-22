@@ -29,7 +29,7 @@ f(x, p) = x^p
 
 ## Files
 
-- `Dynamical_Potential.jl`: Main module (`module P`) implementing:
+- `Dynamical_Potential.jl`: Main module (`module DP`) implementing:
     - the discretized dynamical equations: `computeEquations(...)` (and the call overload `op(ep)`)
     - the Jacobian–vector product: `compute_jacobian(...)`
     - the Krylov solver for Newton steps: `GMRES(...)`
@@ -125,7 +125,7 @@ This will give generate the figure below.
 <p align="center">
   <img src="./Figures/C.png" width="700">
   <br>
-    Correlation function $C(t, t')$
+    Correlation function $C(t, s)$
 </p>
 
 Similarly the *response functions* $R(t,s)$ and the *causal susceptibilities* $\chi(t,s)$ introduced in the paper can be accessed respectively 

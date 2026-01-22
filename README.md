@@ -11,7 +11,7 @@ Franz-Parisi potential. In particular the system starts from an equilibrium init
 evolves with Langevin dynamics at inverse temperature `β2` for a time window `τf` where the trajectory is constrained 
 to have overlap `S` with the initial configuration.
 
-The solver finds a root of the (discretized) dynamical equations using a **damped Newton method**.
+The solver finds a root of the (discretized) dynamical equations using a (damped) Newton method.
 At each Newton iteration one needs to solve a large linear system
 
     J(op) * d(op) = - F(op)
@@ -20,7 +20,7 @@ where `F(op)` is the vector of dynamical equations and `J(op)` its Jacobian. Thi
 Newton step `d(op)` with **GMRES** in a **matrix-free** fashion: only Jacobian–vector products are
 evaluated.
 
-The equations are written and solved here for the **pure p-spin spherical model**.
+The equations are written and solved here for the pure p-spin spherical model.
 This model dependence is encapsulated in the “interaction function”:
 
 ```julia

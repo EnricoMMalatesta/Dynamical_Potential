@@ -136,10 +136,10 @@ julia> heatmap(op.𝓒[2ep.n+2:2*(2ep.n+1), 2ep.n+2:2*(2ep.n+1)], yflip = true)
 
 
 <p align="center">
-  <img src="./R.png" width="500">
+  <img src="./R.png" width="300">
 </p>
 <p align="center">
-  <img src="./chi.png" width="500">
+  <img src="./chi.png" width="300">
 </p>
 
 

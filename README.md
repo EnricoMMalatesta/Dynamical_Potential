@@ -6,7 +6,7 @@ Julia solver of the the non-causal dynamical equations derived in
   *Rare Trajectories in a Prototypical Mean-field Disordered Model: Insights into Landscape and Instantons*,  
   arXiv:2505.00107 (2025).
 
-describing instanton processes in Random First Order Mean Field models via the analysis of a dynamical analog of the
+that describe instanton processes in Random First Order Mean Field models via the analysis of a dynamical analog of the
 Franz-Parisi potential. In particular the system starts from an equilibrium initial condition sampled at inverse temperature `β`; it then 
 evolves with Langevin dynamics at inverse temperature `β2` for a time window `τf` where the trajectory is constrained 
 to have overlap `S` with the initial configuration.

@@ -122,7 +122,7 @@ julia> heatmap(op.𝓒[1:2ep.n+1, 1:2ep.n+1], yflip = true)
 This will give generate the figure below.
 
 <p align="center">
-  <img src="./C.png" width="500">
+  <img src="./C.png" width="700">
 </p>
 
 
